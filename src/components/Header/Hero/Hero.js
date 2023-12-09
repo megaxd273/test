@@ -1,4 +1,5 @@
 import './Hero.css';
+import { Link } from 'react-router-dom';
 
 function Hero() {
   return (
@@ -16,11 +17,11 @@ function Hero() {
           of our iconic models, ground-breaking technologies and the innovations
           that brought us this far.
         </p>
-        <a className="hero-button" href="../menu/index.html">
+        <Link className="hero-button" to="/trucks">
           <span>
             View all <strong>TRUCKS</strong>
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

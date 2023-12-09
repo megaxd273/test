@@ -1,0 +1,100 @@
+.truck {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1rem;
+  gap: 40px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #000;
+  color: #403f3d;
+  border-radius: 3px;
+}
+
+.truck h3 {
+  margin: 0 0 0.25rem 0;
+}
+.img-container {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.5s ease-in-out;
+}
+
+.img-container:hover img {
+  filter: brightness(70%);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay p {
+  color: #fff;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.truck > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  min-height: 100px;
+  text-align: left;
+}
+
+.description {
+  width: 100%;
+  height: 70%;
+  font-style: italic;
+}
+.truck-offer {
+  display: flex;
+  justify-content: space-between;
+}
+.truck-offer button {
+  margin-right: 20px;
+  border-radius: 15px;
+  border: 1px solid #403f3d;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+@media (max-width: 550px) {
+  .truck {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .truck > div {
+    width: 100%;
+  }
+}

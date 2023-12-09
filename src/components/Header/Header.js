@@ -1,25 +1,27 @@
-import Hero from './Hero/Hero';
 import logo from '../../static/logo.png';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header>
       <div className="header-container">
         <div className="header-menu">
-          <img className="logo-img" src={logo} alt="logo" />
+          <Link to="/">
+            <img className="logo-img" src={logo} alt="logo" />
+          </Link>
           <nav className="header-nav">
             <div className="menu-item">
-              <a href="#trucks">Trucks</a>
+              <Link to="trucks">Trucks</Link>
             </div>
             <div className="menu-item">
-              <a href="#services">Services</a>
+              <Link to="/services">Services</Link>
             </div>
             <div className="menu-item">
-              <a href="#abouts">About</a>
+              <Link to="/abouts">About</Link>
             </div>
             <div className="menu-item">
-              <a href="#contacts">Contact us</a>
+              <Link to="/contacts">Contact us</Link>
             </div>
           </nav>
           <div className="account-menu">
@@ -56,9 +58,44 @@ function Header() {
               </svg>
             </a>
           </div>
+          <div class="button-burger">
+            <div class="button-burger-menu">
+              <svg
+                width="18"
+                height="2"
+                viewBox="0 0 18 2"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1H17"
+                  stroke="#403F3D"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                width="18"
+                height="2"
+                viewBox="0 0 18 2"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  id="Vector"
+                  d="M1 1H17"
+                  stroke="#403F3D"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <Hero />
     </header>
   );
 }

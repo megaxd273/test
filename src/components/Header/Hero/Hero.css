@@ -7,9 +7,7 @@
 }
 .hero-container {
   max-width: 1440px;
-
   box-sizing: border-box;
-  border-radius: 40px;
   background: url(../../../static/hero.webp) center;
 }
 .offer {
@@ -60,4 +58,16 @@
   font-weight: 600;
   line-height: 100%;
   border: none;
+}
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 40px;
+  }
+  .button-burger {
+    display: flex;
+  }
+  .header-nav,
+  .account-menu {
+    display: none;
+  }
 }
