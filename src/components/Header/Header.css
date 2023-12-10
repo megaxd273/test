@@ -63,6 +63,7 @@ a:not(.account-menu a) {
   display: none;
   width: 44px;
   height: 44px;
+  z-index: 1001;
   justify-content: center;
   align-items: center;
   border-radius: 100px;
@@ -85,6 +86,13 @@ a:not(.account-menu a) {
   height: 2px;
   background-color: #403f3d;
   transition: width 0.5s ease-out, left 0.5s ease-out;
+}
+.account-menu div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  gap: 5px;
 }
 
 .menu-item a:hover::before {

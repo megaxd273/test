@@ -81,6 +81,11 @@
   margin-right: 20px;
   border-radius: 15px;
   border: 1px solid #403f3d;
+  transition: all 0.5s ease-in-out;
+}
+.truck-offer button:hover {
+  background-color: #403f3d;
+  color: rgb(233, 233, 233);
 }
 
 .price {

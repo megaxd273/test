@@ -1,5 +1,17 @@
 import './TruckItem.css';
+import { useContext } from 'react';
+import CartContext from '../../../store/CartContext';
+
 const TruckItem = ({ id, photo, name, description, price }) => {
+  const ctx = useContext(CartContext);
+  function clickHandler() {
+    ctx.addItem({
+      id,
+      name,
+      amount: 1,
+      price,
+    });
+  }
   return (
     <li key={id} className="truck">
       <div className="img-container">
@@ -13,7 +25,7 @@ const TruckItem = ({ id, photo, name, description, price }) => {
         <div className="description">{description}</div>
         <div className="truck-offer">
           <span className="price">${price}</span>
-          <button>Add to Cart</button>
+          <button onClick={clickHandler}>Add to Cart</button>
         </div>
       </div>
     </li>

@@ -1,8 +1,26 @@
 import logo from '../../static/logo.png';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import BurgerMenu from '../Menu/BurgerMenu';
+import CartContext from '../../store/CartContext';
 
-function Header() {
+const menuItems = [
+  { value: 'Home', href: '/' },
+  { value: 'Trucks', href: '/trucks' },
+  { value: 'Services', href: '/' },
+  { value: 'About', href: '/' },
+  { value: 'Contact us', href: '/' },
+  { value: 'Cart', href: '/cart' },
+  { value: 'Log in', href: '/' },
+];
+
+function Header({ onShowCart }) {
+  const [menuActive, setMenuActive] = useState(false);
+  const ctx = useContext(CartContext);
+  const cartLength = ctx.items.reduce((current, item) => {
+    return current + item.amount;
+  }, 0);
   return (
     <header>
       <div className="header-container">
@@ -25,7 +43,7 @@ function Header() {
             </div>
           </nav>
           <div className="account-menu">
-            <a href="#cart">
+            <div onClick={() => onShowCart()}>
               <svg
                 width="40px"
                 height="40px"
@@ -40,7 +58,8 @@ function Header() {
                   fill=""
                 />
               </svg>
-            </a>
+              <span>{cartLength}</span>
+            </div>
             <a href="#login">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,42 +77,84 @@ function Header() {
               </svg>
             </a>
           </div>
-          <div class="button-burger">
+          <div class="button-burger" onClick={() => setMenuActive(!menuActive)}>
             <div class="button-burger-menu">
-              <svg
-                width="18"
-                height="2"
-                viewBox="0 0 18 2"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  id="Vector"
-                  d="M1 1H17"
-                  stroke="#403F3D"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <svg
-                width="18"
-                height="2"
-                viewBox="0 0 18 2"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  id="Vector"
-                  d="M1 1H17"
-                  stroke="#403F3D"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+              {menuActive ? (
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 1L17 17M1 17L17 1L1 17Z"
+                    stroke="#403F3D"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              ) : (
+                <>
+                  <svg
+                    width="18"
+                    height="2"
+                    viewBox="0 0 18 2"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="Vector"
+                      d="M1 1H17"
+                      stroke="#403F3D"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="2"
+                    viewBox="0 0 18 2"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="Vector"
+                      d="M1 1H17"
+                      stroke="#403F3D"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <svg
+                    width="18"
+                    height="2"
+                    viewBox="0 0 18 2"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="Vector"
+                      d="M1 1H17"
+                      stroke="#403F3D"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </>
+              )}
             </div>
           </div>
+          <BurgerMenu
+            active={menuActive}
+            setActive={setMenuActive}
+            header={'Menu'}
+            items={menuItems}
+          />
         </div>
       </div>
     </header>
