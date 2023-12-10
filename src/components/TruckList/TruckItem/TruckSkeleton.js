@@ -6,8 +6,8 @@ const TruckSkeleton = (props) => (
   <ContentLoader
     className="truck"
     speed={2}
-    maxWidth={616}
-    maxHeight={223}
+    width={616}
+    height={223}
     viewBox="0 0 616 223"
     backgroundColor="#fff"
     foregroundColor="#403f3d"

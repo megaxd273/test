@@ -7,8 +7,12 @@ import './Cart.css';
 function Cart({ onHideCart }) {
   const ctx = useContext(CartContext);
   const totalAmount = `$${ctx.totalAmount}`;
-  function removeHandler(id) {}
-  function addHandler(item) {}
+  function removeHandler(id) {
+    ctx.removeItem(id);
+  }
+  function addHandler(item) {
+    ctx.addItem({ ...item, amount: 1 });
+  }
   const cartItems = (
     <ul className="cart-items">
       {ctx.items.map((el) => (

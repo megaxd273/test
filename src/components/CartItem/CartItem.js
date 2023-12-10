@@ -1,5 +1,6 @@
 import './CartItem.css';
 function CartItem(props) {
+  console.log(123);
   return (
     <li className="cart-item">
       <div>

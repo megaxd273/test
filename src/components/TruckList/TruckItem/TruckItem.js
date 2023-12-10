@@ -16,7 +16,7 @@ const TruckItem = ({ id, photo, name, description, price }) => {
     <li key={id} className="truck">
       <div className="img-container">
         <img src={photo} alt="truck" />
-        <div class="overlay">
+        <div className="overlay">
           <p>Click to learn more</p>
         </div>
       </div>
